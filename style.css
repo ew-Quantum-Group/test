@@ -687,6 +687,35 @@ body {
     line-height: 1.5;
 }
 
+/* PWA Install Button Styles */
+#pwaInstallButton {
+    background: linear-gradient(135deg, #8a2be2 0%, #ba55d3 100%);
+    color: white !important;
+    border: none !important;
+    animation: pulseInstall 2s infinite;
+}
+
+#pwaInstallButton:hover {
+    background: linear-gradient(135deg, #7a1bd2 0%, #aa45c3 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(138, 43, 226, 0.3);
+}
+
+@keyframes pulseInstall {
+    0%, 100% { box-shadow: 0 4px 16px rgba(138, 43, 226, 0.2); }
+    50% { box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4); }
+}
+
+/* Install Success Message */
+.install-success {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -748,6 +777,16 @@ body {
     .popup-title {
         font-size: 18px;
     }
+    
+    /* Adjust nav buttons on mobile */
+    .nav-actions {
+        gap: 12px;
+    }
+    
+    #pwaInstallButton {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -776,7 +815,7 @@ body {
     }
     
     .nav-actions {
-        gap: 12px;
+        gap: 8px;
     }
     
     .nav-button {
