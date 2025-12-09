@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="Eduwell SVT">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Eduwell SVT">
+    <meta name="description" content="Plateforme d'apprentissage scientifique pour SVT">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#8a2be2">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="theme-color" content="#8a2be2">
+    
+    <!-- Original Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduwell | SVT Learning Platform</title>
+    
+    <!-- Icons -->
+    <link rel="shortcut icon" href="./assets/images/appicon.png" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/images/icon-512x512.png">
+    <link rel="apple-touch-icon" href="./assets/images/icon-192x192.png">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    
+    <!-- CSS & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ORIGINAL BACKGROUND ANIMATION -->
+    <div class="bg-animation">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+    </div>
+
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">
+            <div class="loader-logo-inner">SVT</div>
+        </div>
+        <div class="loader-text">Loading Platform</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- Transition overlay -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <!-- NEW POP-UP OVERLAY -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+
+    <!-- Privacy Pop-up -->
+    <div class="popup" id="privacyPopup">
+        <div class="popup-header">
+            <div class="popup-title">Politique de Confidentialité</div>
+            <div class="popup-close" onclick="closePopup('privacyPopup')">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="popup-section">
+                <div class="popup-section-content">
+                    Ce site est entièrement statique et ne collecte aucune donnée personnelle.
+                    Aucune inscription, aucun compte, aucun système de suivi, et aucune information utilisateur n'est enregistrée.
+                    Vous pouvez utiliser le site en toute confidentialité.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Pop-up -->
+    <div class="popup" id="termsPopup">
+        <div class="popup-header">
+            <div class="popup-title">Conditions d'Utilisation</div>
+            <div class="popup-close" onclick="closePopup('termsPopup')">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="popup-section">
+                <div class="popup-section-content">
+                    Ce site fournit uniquement du contenu éducatif (cours, exercices, fiches, quiz).
+                    L'accès est gratuit et aucune donnée privée n'est demandée.
+                    En utilisant le site, vous acceptez d'utiliser le contenu uniquement à des fins personnelles et éducatives.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Pop-up -->
+    <div class="popup" id="supportPopup">
+        <div class="popup-header">
+            <div class="popup-title">Support</div>
+            <div class="popup-close" onclick="closePopup('supportPopup')">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="popup-section">
+                <div class="popup-section-content">
+                    Si vous avez besoin d'aide pour un problème quelconque, contactez-nous directement ici.
+                </div>
+            </div>
+            
+            <a href="https://www.instagram.com/eduwellofficial/" target="_blank" class="support-button">
+                <i class="fab fa-instagram"></i>
+                Contactez-nous sur Instagram
+            </a>
+        </div>
+    </div>
+
+    <!-- Info Pop-up -->
+    <div class="popup" id="infoPopup">
+        <div class="popup-header">
+            <div class="popup-title">Historique des Versions</div>
+            <div class="popup-close" onclick="closePopup('infoPopup')">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="version-item">
+                <div class="version-number">
+                    <i class="fas fa-star"></i>
+                    Version 1.0
+                </div>
+                <div class="version-date">Publiée le : 23 November 2025</div>
+                <div class="version-description">
+                  • Lancement du premier modèle  <br>
+                  • Interface utilisateur interactive et claire  <br>
+                  • Lancement des Quiz Cards
+                </div>
+            </div>
+            
+            <div class="version-item">
+                <div class="version-number">
+                    <i class="fas fa-star"></i>
+                    Version 1.3 
+                </div>
+                <div class="version-date">Publiée le : 6 Septembre 2025</div>
+                <div class="version-description">
+                   • Mise à jour de l'UI et du design des Quiz, Flash Cards et pages principales <br>
+                   • Ajout de tous les cours de sciences pour le Bac <br>
+                   • Ajout des devoirs et exercices de sciences Bac  <br>
+                   • Nouvelle section Vidéos avec playlist et barre de navigation  <br>
+                   • Mise à jour majeure de la section Flash Cards
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="mainContainer">
+        <!-- Top Navigation -->
+        <nav class="nav">
+            <div class="brand">
+                <div class="brand-icon">EQ</div>
+                <div class="brand-text">Quantum Group</div>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-button" onclick="openPopup('infoPopup')">
+                    <i class="fas fa-info-circle"></i>
+                    Info
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- ORIGINAL LOGO STYLE -->
+            <div class="logo-container">
+                <div class="logo-background"></div>
+                <div class="logo">
+                    <div class="logo-inner">SVT</div>
+                </div>
+            </div>
+
+            <!-- Headlines -->
+            <h1 class="headline">Plateforme d'apprentissage scientifique</h1>
+            <p class="subheadline">Maîtrisez les sciences et les sciences de la Terre avec des outils interactifs et un apprentissage intelligent</p>
+
+            <!-- Primary Action -->
+            <button class="primary-button" id="startButton">
+                Commencer à apprendre
+                <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <!-- Features Grid -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="feature-title">Cours & Devoirs</div>
+                    <div class="feature-desc">Cours de sciences + devoirs pour toutes les sections Bac.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="feature-title">Quiz & Cartes</div>
+                    <div class="feature-desc">Quiz & cartes pour rester toujours prêt et réviser efficacement.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="feature-title">Flash Cards</div>
+                    <div class="feature-desc">Flash Cards pour comprendre plus vite et mémoriser mieux.</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#" class="footer-link" onclick="openPopup('privacyPopup'); return false;">Confidentialité</a>
+                <a href="#" class="footer-link" onclick="openPopup('termsPopup'); return false;">Conditions</a>
+                <a href="#" class="footer-link" onclick="openPopup('supportPopup'); return false;">Support</a>
+            </div>
+            <div>© 2025 Eduwell Quantum Group</div>
+        </footer>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script src="register-sw.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

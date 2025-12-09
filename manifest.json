@@ -1,0 +1,51 @@
+{
+  "name": "Eduwell SVT",
+  "short_name": "Eduwell",
+  "description": "Plateforme d'apprentissage scientifique pour SVT",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#8a2be2",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "fr",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "./assets/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://via.placeholder.com/1080x1920/8a2be2/ffffff?text=Eduwell+SVT",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Eduwell SVT App"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Commencer à apprendre",
+      "short_name": "Apprendre",
+      "description": "Accéder aux cours et quiz",
+      "url": "https://edu-well.netlify.app/quizqcm/svtapp",
+      "icons": [
+        {
+          "src": "./assets/images/icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

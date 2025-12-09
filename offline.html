@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduwell SVT - Hors Ligne</title>
+    <style>
+        /* Match the main app styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        :root {
+            --primary-bg: #f8f9fa;
+            --surface: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-purple: #8a2be2;
+            --border: #e5e5ea;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .offline-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #8a2be2 0%, #ba55d3 100%);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 30px;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.3);
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .features {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-purple);
+        }
+        
+        .features h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li:before {
+            content: "✓";
+            color: var(--accent-purple);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #8a2be2 0%, #ba55d3 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+        }
+        
+        .button:active {
+            transform: translateY(0);
+        }
+        
+        .retry-button {
+            background: var(--surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 30px 20px;
+            }
+            
+            .offline-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 36px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">
+            <i class="fas fa-wifi-slash"></i>
+        </div>
+        
+        <h1>Vous êtes hors ligne</h1>
+        <p>La connexion Internet est actuellement indisponible. Certaines fonctionnalités peuvent être limitées.</p>
+        
+        <div class="features">
+            <h3>Fonctionnalités disponibles hors ligne :</h3>
+            <ul>
+                <li>Cours récemment consultés</li>
+                <li>Quiz et exercices téléchargés</li>
+                <li>Flash Cards en cache</li>
+                <li>Navigation dans l'application</li>
+            </ul>
+        </div>
+        
+        <button class="button" onclick="window.location.reload()">
+            <i class="fas fa-sync-alt"></i>
+            Réessayer la connexion
+        </button>
+        
+        <div style="margin-top: 30px; color: var(--text-secondary); font-size: 14px;">
+            <i class="fas fa-info-circle"></i>
+            Les nouvelles données seront synchronisées lorsque la connexion sera rétablie.
+        </div>
+    </div>
+    
+    <script>
+        // Add Font Awesome
+        const faScript = document.createElement('script');
+        faScript.src = 'https://kit.fontawesome.com/a076d05399.js';
+        faScript.crossOrigin = 'anonymous';
+        document.head.appendChild(faScript);
+        
+        // Check connection status periodically
+        setInterval(() => {
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
